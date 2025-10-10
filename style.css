@@ -173,9 +173,7 @@ section {
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease;
-  max-width: 1200px;
-  margin: auto;
-  padding: 10px 20px;
+  padding: 10px 30px;
 }
 .section h2 {
   font-size: 28px;
