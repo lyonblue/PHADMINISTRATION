@@ -115,11 +115,13 @@ img {
 }
 
 /* Hero */
-.hero {
+.section.on {
+  display: block;
+  opacity: 1;
   background: linear-gradient(180deg, var(--brand-50), #fff);
   border-bottom: 1px solid var(--line);
 }
-.hero .wrap {
+.section.on .wrap {
   max-width: 1200px;
   margin: auto;
   padding: 48px 20px;
@@ -168,6 +170,9 @@ section {
   scroll-margin-top: 90px;
 }
 .section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
   max-width: 1200px;
   margin: auto;
   padding: 56px 20px;

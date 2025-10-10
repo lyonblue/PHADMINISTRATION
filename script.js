@@ -101,3 +101,37 @@ $('#propForm')?.addEventListener('submit',(e)=>{
   $('#propMsg').textContent = `¡Gracias, ${name}! Te contactaremos a ${email} / ${phone} con la propuesta para "${ph}". (demostración)`;
   e.target.reset();
 });
+
+//mostrar secciones con el nav
+
+document.addEventListener("DOMContentLoaded", () => {
+  const secciones = document.querySelectorAll(".section");
+  const enlaces = document.querySelectorAll("nav a[href^='#']");
+
+  function mostrarSeccion(id) {
+    // Ocultar todas las secciones
+    secciones.forEach(sec => sec.classList.remove("on"));
+
+    // Mostrar la sección seleccionada
+    const target = document.querySelector(id);
+    if (target) {
+      target.classList.add("on");
+      history.pushState(null, "", id); // cambia el hash sin recargar
+    }
+  }
+
+  // Detectar clics en los enlaces del menú
+  enlaces.forEach(enlace => {
+    enlace.addEventListener("click", e => {
+      e.preventDefault();
+      const id = enlace.getAttribute("href");
+      mostrarSeccion(id);
+    });
+  });
+
+  // Mostrar la correcta si hay hash en la URL al cargar
+  const hash = window.location.hash;
+  if (hash && document.querySelector(hash)) {
+    mostrarSeccion(hash);
+  }
+});
