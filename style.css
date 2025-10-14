@@ -1,14 +1,15 @@
 :root {
-  --brand: #0e4da4; /* azul corporativo */
-  --brand-600: #0b3f86;
+  --brand: #a40e13; /* azul corporativo */
+  --brand-600: #860b0b;
   --brand-50: #eaf2ff;
-  --accent: #00a389; /* verde turquesa sutil para CTAs */
+  --accent: #871d1d; /* verde turquesa sutil para CTAs */
   --accent-600: #008773;
-  --ink: #0f172a; /* slate-900 */
-  --muted: #475569; /* slate-600 */
+  --ink: #2a0f14; /* slate-900 */
+  --muted: #69474d; /* slate-600 */
   --line: #e2e8f0; /* slate-200 */
   --bg: #ffffff;
   --card: #f8fafc;
+  --redp: #f2d9d9 ;
   --radius: 16px;
   --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
 }
@@ -72,14 +73,14 @@ img {
   gap: 16px;
   align-items: center;
 }
-.navlinks a {
+.navbuttn {
   padding: 8px 12px;
   border-radius: 10px;
-  color: var(--muted);
+  color: var(--ink);
   font-weight: 500;
 }
-.navlinks a:hover {
-  background: var(--brand-50);
+.navbuttn:hover {
+  background: var(--card);
   color: var(--brand);
 }
 .cta-wsp,
@@ -91,6 +92,7 @@ img {
   border-radius: 12px;
   font-weight: 600;
 }
+
 .cta-wsp {
   background: #25d366;
   color: #053b20;
@@ -100,11 +102,14 @@ img {
 }
 .cta-propuesta {
   background: var(--accent);
-  color: #fff;
+  color: white;
 }
+
 .cta-propuesta:hover {
-  background: var(--accent-600);
+  background: var(--brand);
+  color: white;
 }
+
 .menu-btn {
   display: none;
   margin-left: 8px;
@@ -118,7 +123,7 @@ img {
 .section.on {
   display: block;
   opacity: 1;
-  background: linear-gradient(180deg, var(--brand-50), #fff);
+  background: linear-gradient(180deg, var(--redp), #fff);
   border-bottom: 1px solid var(--line);
 }
 .section.on .wrap {
