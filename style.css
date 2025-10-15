@@ -10,6 +10,7 @@
   --bg: #ffffff;
   --card: #f8fafc;
   --redp: #f2d9d9 ;
+  --grey: #f1f1f1;
   --radius: 16px;
   --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
 }
@@ -236,7 +237,7 @@ section {
   gap: 6px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: var(--brand-50);
+  background: var(--grey);
   color: var(--brand);
   font-weight: 600;
   font-size: 12px;
