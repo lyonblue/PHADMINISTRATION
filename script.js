@@ -7,8 +7,8 @@ $('#year').textContent = new Date().getFullYear();
 // Menú móvil
 const mobileMenu = $('#mobileMenu');
 const menuBtn = $('#menuBtn');
-menuBtn?.addEventListener('click', ()=>{
-  mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+menuBtn?.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
 });
 mobileMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
   mobileMenu.style.display='none';
