@@ -378,3 +378,81 @@ footer {
   background: var(--brand-50);
   color: var(--brand);
 }
+
+/*Parte del login Local*/
+/* === LOGIN PAGE === */
+.login-page {
+  background: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-container {
+  background: var(--card);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 320px;
+  text-align: center;
+}
+
+.login-container h1 {
+  color: var(--brand);
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--ink);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  font-size: 15px;
+}
+
+.btn-login {
+  background: var(--brand);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background: var(--brand-600);
+}
+
+#msg {
+  margin-top: 15px;
+  color: var(--accent);
+  font-weight: bold;
+}
+.login-logo {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeIn 0.8s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

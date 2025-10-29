@@ -135,3 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
     mostrarSeccion(hash);
   }
 });
+
+//Pa verificar si el login si funciona
+// Verificar si hay sesión
+if (localStorage.getItem("logueado") !== "true") {
+  window.location.href = "login.html";
+}
