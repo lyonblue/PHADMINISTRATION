@@ -12,14 +12,19 @@
     <h1>Iniciar Sesión</h1>
     <form id="loginForm">
       <div class="form-group">
-        <label for="user">Usuario</label>
-        <input type="text" id="user" placeholder="Ingrese su usuario" required />
+        <label for="email">Correo</label>
+        <input type="email" id="email" placeholder="tu@correo.com" required />
+        <div id="emailHint" class="hint"></div>
       </div>
       <div class="form-group">
         <label for="pass">Contraseña</label>
         <input type="password" id="pass" placeholder="Ingrese su contraseña" required />
       </div>
       <button type="submit" class="btn-login">Entrar</button>
+      <div style="margin-top:10px; display:flex; justify-content:space-between; font-size:14px">
+        <a href="reset.html" class="subtle">¿Olvidaste tu contraseña?</a>
+        <a href="register.html" class="subtle">Crear cuenta</a>
+      </div>
       <p id="msg"></p>
     </form>
   </div>

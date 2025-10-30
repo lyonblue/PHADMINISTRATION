@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear cuenta | PH PTY Administration</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+  <div class="login-container wide">
+    <img src="Media/Images/logo.jpg" alt="Logo PH Administration" class="login-logo" />
+    <h1>Crear cuenta</h1>
+    <form id="registerForm" class="form-grid two">
+      <div class="form-group">
+        <label for="fullName">Nombre y Apellido</label>
+        <input type="text" id="fullName" placeholder="Tu nombre completo" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Correo</label>
+        <input type="email" id="email" placeholder="tu@correo.com" required />
+        <div id="emailHint" class="hint">Ingresa un correo válido (ej: usuario@dominio.com)</div>
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="Mínimo 8 caracteres" required />
+        <div id="pwdHint" class="hint">Mínimo 8 caracteres, incluye una letra y un número.</div>
+      </div>
+      <div class="form-group">
+        <label for="password2">Confirmar contraseña</label>
+        <input type="password" id="password2" placeholder="Repite tu contraseña" required />
+      </div>
+      <div class="full-span">
+        <button type="submit" class="btn-login" style="width:100%">Crear cuenta</button>
+      </div>
+      <div class="full-span" style="margin-top:10px; font-size:14px">
+        <a href="login.html" class="subtle">¿Ya tienes cuenta? Inicia sesión</a>
+      </div>
+      <p id="msg" class="full-span"></p>
+    </form>
+  </div>
+
+  <script src="register.js"></script>
+</body>
+</html>
+

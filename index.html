@@ -33,19 +33,47 @@
           <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
             ☰
           </button>
-          <div class="navlinks" id="navlinks">
+          <div class="navlinks-left" id="navlinks">
             <a class="navbuttn" href="#inicio">Inicio</a>
             <a class="navbuttn" href="#quienes">Quiénes Somos</a>
             <a class="navbuttn" href="#servicios">Servicios</a>
-            <a class="navbuttn" href="#beneficios">Beneficios</a>
             <a class="navbuttn" href="#blog">Blog</a>
             <a class="navbuttn" href="#testimonios">Testimonios</a>
-            <a class="navbuttn" href="#residentes">Área de Residentes</a>
-            <a class="navbuttn" href="#contacto">Contacto</a>
-            <a class="cta-wsp" target="_blank" href="https://wa.me/50763781316"
-              >💬 WhatsApp</a
-            >
-            <a class="cta-propuesta" href="#propuesta">📄 propuesta</a>
+          </div>
+          <div class="navctas-right">
+            <a class="cta-wsp" target="_blank" href="https://wa.me/50763781316">💬 WhatsApp</a>
+            <a class="cta-propuesta" href="#propuesta">Propuesta</a>
+            <div id="userMenu" class="user-menu" style="display:none">
+              <div class="user-trigger" id="userTrigger">
+                <img id="userAvatar" class="user-avatar" src="" alt="Avatar" />
+                <span id="userName" class="user-name"></span>
+              </div>
+              <div id="userDropdown" class="user-dropdown">
+                <div class="dropdown-header">
+                  <div class="avatar-edit-wrapper">
+                    <img id="dropdownAvatar" class="dropdown-avatar" src="" alt="Avatar" />
+                    <label for="avatarInput" class="edit-icon">✏️</label>
+                    <input type="file" id="avatarInput" accept="image/*" style="display:none" />
+                  </div>
+                  <div class="name-edit-wrapper" style="display:flex; gap:8px; align-items:center; justify-content:center">
+                    <span id="displayName" class="display-name"></span>
+                    <input type="text" id="editableName" class="editable-name" style="display:none" />
+                    <button id="editNameBtn" class="edit-name-icon">✏️</button>
+                    <button id="saveNameBtn" class="btn-save-name" style="display:none">Guardar</button>
+                    <button id="cancelNameBtn" class="btn-cancel-name" style="display:none">Cancelar</button>
+                  </div>
+                </div>
+                <div class="dropdown-menu">
+                  <button id="changePasswordBtn" class="dropdown-item">
+                    🔒 Cambiar contraseña
+                  </button>
+                  <button id="logoutBtn" class="dropdown-item logout">
+                    🚪 Cerrar sesión
+                  </button>
+                </div>
+              </div>
+            </div>
+            <a id="loginLink" class="cta-login" href="login.html">Iniciar sesión</a>
           </div>
         </div>
       </nav>
@@ -133,6 +161,33 @@
           </p>
         </div>
       </div>
+      <h3 style="margin-top:16px">Beneficios de elegirnos</h3>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Informes claros</h3>
+          <p>Finanzas actualizadas con lenguaje simple y comprensible.</p>
+        </div>
+        <div class="card">
+          <h3>Respuesta inmediata</h3>
+          <p>Atención de emergencias y seguimiento continuo.</p>
+        </div>
+        <div class="card">
+          <h3>Comunicación directa</h3>
+          <p>Canales abiertos con administración y equipo operativo.</p>
+        </div>
+        <div class="card">
+          <h3>Acompañamiento</h3>
+          <p>Soporte constante a la Junta Directiva.</p>
+        </div>
+        <div class="card">
+          <h3>Soluciones ágiles</h3>
+          <p>Acciones rápidas para seguridad y convivencia.</p>
+        </div>
+        <div class="card">
+          <h3>Transparencia</h3>
+          <p>Procesos auditables y trazabilidad.</p>
+        </div>
+      </div>
     </section>
 
     <!-- SERVICIOS -->
@@ -187,36 +242,7 @@
       </div>
     </section>
 
-    <!-- BENEFICIOS -->
-    <section id="beneficios" class="section">
-      <h2>Beneficios de elegirnos</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Informes claros</h3>
-          <p>Finanzas actualizadas con lenguaje simple y comprensible.</p>
-        </div>
-        <div class="card">
-          <h3>Respuesta inmediata</h3>
-          <p>Atención de emergencias y seguimiento continuo.</p>
-        </div>
-        <div class="card">
-          <h3>Comunicación directa</h3>
-          <p>Canales abiertos con administración y equipo operativo.</p>
-        </div>
-        <div class="card">
-          <h3>Acompañamiento</h3>
-          <p>Soporte constante a la Junta Directiva.</p>
-        </div>
-        <div class="card">
-          <h3>Soluciones ágiles</h3>
-          <p>Acciones rápidas para seguridad y convivencia.</p>
-        </div>
-        <div class="card">
-          <h3>Transparencia</h3>
-          <p>Procesos auditables y trazabilidad.</p>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- BLOG -->
     <section id="blog" class="section">
@@ -231,20 +257,26 @@
     <section id="testimonios" class="section">
       <h2>Testimonios</h2>
       <p class="lead">
-        Comparte tu experiencia. (Demostración: guardado local en tu navegador)
+        Comparte tu experiencia con nuestra administración.
       </p>
       <div class="grid grid-2" style="align-items: start">
         <div class="card">
           <h3>Deja tu opinión</h3>
-          <form id="testiForm" class="form">
-            <input class="input" id="tName" placeholder="Tu nombre" required />
-            <select id="tStars" class="input" required>
-              <option value="5">★★★★★ – 5</option>
-              <option value="4">★★★★☆ – 4</option>
-              <option value="3">★★★☆☆ – 3</option>
-              <option value="2">★★☆☆☆ – 2</option>
-              <option value="1">★☆☆☆☆ – 1</option>
-            </select>
+          <div id="testiLoginPrompt" class="testi-login-prompt" style="display:none">
+            <p>Para dejar un testimonio, por favor <a href="login.html">inicia sesión</a>.</p>
+          </div>
+          <form id="testiForm" class="form" style="display:none">
+            <div class="star-rating">
+              <span class="star-label">Calificación:</span>
+              <div class="stars-container">
+                <span class="star" data-rating="1">★</span>
+                <span class="star" data-rating="2">★</span>
+                <span class="star" data-rating="3">★</span>
+                <span class="star" data-rating="4">★</span>
+                <span class="star" data-rating="5">★</span>
+              </div>
+              <span id="starValue" class="star-value"></span>
+            </div>
             <textarea
               id="tMsg"
               class="textarea"
@@ -252,61 +284,13 @@
               required
             ></textarea>
             <button class="btn" type="submit">Publicar</button>
-            <p class="subtle">
-              Nota: Para publicar en producción se requiere un backend
-              (moderación y almacenamiento real).
-            </p>
           </form>
         </div>
         <div id="testiList" class="grid" style="gap: 14px"></div>
       </div>
     </section>
 
-    <!-- ÁREA DE RESIDENTES -->
-    <section id="residentes" class="section">
-      <h2>Área de Residentes</h2>
-      <p class="lead">
-        Suscríbete para recibir circulares y realizar consultas. (Demostración
-        sin servidor)
-      </p>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>Suscripción</h3>
-          <form id="subForm" class="form">
-            <input
-              type="email"
-              id="subEmail"
-              class="input"
-              placeholder="Tu correo"
-              required
-            />
-            <input
-              type="text"
-              id="subPH"
-              class="input"
-              placeholder="Nombre del PH / Torre"
-              required
-            />
-            <button class="btn" type="submit">Suscribirme</button>
-            <div id="subMsg" class="subtle"></div>
-          </form>
-        </div>
-        <div class="card">
-          <h3>Consulta rápida</h3>
-          <form id="qForm" class="form">
-            <input class="input" id="qName" placeholder="Tu nombre" required />
-            <textarea
-              id="qText"
-              class="textarea"
-              placeholder="Escribe tu consulta"
-              required
-            ></textarea>
-            <button class="btn" type="submit">Enviar consulta</button>
-            <div id="qMsg" class="subtle"></div>
-          </form>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- PROPUESTA (FORM) -->
     <section id="propuesta" class="section">
@@ -367,36 +351,7 @@
       </div>
     </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="section">
-      <h2>Contacto</h2>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>Escríbenos</h3>
-          <p class="subtle">¿Quieres que tu PH esté mejor administrado?</p>
-          <p>
-            <strong>Correo:</strong>
-            <a href="mailto:admon.phpty@gmail.com">admon.phpty@gmail.com</a
-            ><br />
-            <strong>WhatsApp:</strong>
-            <a target="_blank" href="https://wa.me/50763781316">6378-1316</a
-            ><br />
-            <strong>Ubicación:</strong> Ciudad de Panamá
-          </p>
-          <a class="cta-propuesta" href="#propuesta">Solicitar propuesta</a>
-        </div>
-        <div class="card">
-          <h3>Horarios</h3>
-          <p class="subtle">
-            Lunes a Viernes: 8:00 a.m. – 5:00 p.m.<br />
-            Sábados: 9:00 a.m. – 1:00 p.m.
-          </p>
-          <p class="subtle">
-            Atención de emergencias fuera de horario vía WhatsApp.
-          </p>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- FOOTER -->
     <footer>
@@ -413,9 +368,17 @@
           </div>
         </div>
         <div>
-          <!-- AQUI HAY QUE PONER ALGO PARA EL FOOTER
-           /////////////////
-           ///////////////// -->
+          <strong>Contacto</strong>
+          <div class="subtle" style="margin-top:8px">
+            <div><strong>Correo:</strong> <a href="mailto:admon.phpty@gmail.com">admon.phpty@gmail.com</a></div>
+            <div><strong>WhatsApp:</strong> <a target="_blank" href="https://wa.me/50763781316">6378-1316</a></div>
+            <div><strong>Ubicación:</strong> Ciudad de Panamá</div>
+            <div style="margin-top:8px">
+              <strong>Horarios</strong><br/>
+              Lunes a Viernes: 8:00 a.m. – 5:00 p.m.<br/>
+              Sábados: 9:00 a.m. – 1:00 p.m.
+            </div>
+          </div>
         </div>
         <div>
           <strong>Acción</strong>
@@ -435,6 +398,10 @@
       </div>
     </footer>
 
+    <!-- React (para ruteo de secciones) -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="app-routing.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
