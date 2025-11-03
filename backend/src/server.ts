@@ -8,6 +8,8 @@ import authRoutes from './routes/auth';
 import meRoutes from './routes/me';
 import adminRoutes from './routes/admin';
 import testimonialsRoutes from './routes/testimonials';
+import newsRoutes from './routes/news';
+import contactRoutes from './routes/contact';
 
 const app = express();
 
@@ -27,7 +29,7 @@ if(env.nodeEnv === 'development'){
     origin: true, // Permitir cualquier origen en desarrollo
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control', 'X-Requested-With']
   }));
 } else {
   const allowedOrigins = env.allowedOrigin === '*' 
@@ -43,7 +45,7 @@ if(env.nodeEnv === 'development'){
     },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control', 'X-Requested-With']
   }));
 }
 app.use(express.json());
@@ -60,7 +62,9 @@ app.get('/', (_, res) => {
       auth: '/auth/*',
       me: '/me',
       admin: '/admin/*',
-      testimonials: '/testimonials'
+      testimonials: '/testimonials',
+      news: '/news',
+      contact: '/contact/*'
     }
   });
 });
@@ -70,6 +74,8 @@ app.use('/auth', authRoutes);
 app.use('/me', meRoutes);
 app.use('/admin', adminRoutes);
 app.use('/testimonials', testimonialsRoutes);
+app.use('/news', newsRoutes);
+app.use('/contact', contactRoutes);
 
 // Manejar rutas no encontradas
 app.use((req, res) => {

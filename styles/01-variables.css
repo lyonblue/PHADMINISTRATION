@@ -1,0 +1,39 @@
+/**
+ * Variables CSS (Custom Properties)
+ * Define todos los valores reutilizables: colores, espaciados, sombras, etc.
+ */
+
+:root {
+  /* === Paleta de colores === */
+  --brand: #b90f1a;        /* Rojo principal */
+  --brand-600: #990c15;    /* Rojo más oscuro */
+  --brand-50: #fff1f1;     /* Rojo muy claro para fondos sutiles */
+  --accent: #7a0c14;       /* Acento rojo profundo */
+  --accent-600: #5d0a10;   /* Acento más oscuro */
+  
+  /* === Colores de texto === */
+  --ink: #161616;          /* Casi negro para texto principal */
+  --muted: #6b7280;        /* Gris medio para texto secundario */
+  
+  /* === Colores de fondo y bordes === */
+  --bg: #ffffff;           /* Blanco fondo */
+  --card: #f9fafb;         /* Gris casi blanco para tarjetas */
+  --redp: #fde8e8;         /* Fondo suave rojizo */
+  --grey: #f3f4f6;         /* Gris claro UI */
+  --line: #e5e7eb;         /* Gris claro para bordes */
+  
+  /* === Alias de colores === */
+  --primary: #b90f1a;      /* Alias a brand */
+  --secondary: #9ca3af;    /* Gris secundario */
+  --light: #f5f5f5;        /* Luz */
+  --dark: #111827;         /* Gris muy oscuro */
+  
+  /* === Espaciado y formas === */
+  --radius: 16px;          /* Radio de borde estándar */
+  
+  /* === Sombras === */
+  --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+

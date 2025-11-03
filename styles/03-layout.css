@@ -1,0 +1,210 @@
+/**
+ * Estilos de layout y estructura
+ * Secciones, grids, wraps, etc.
+ */
+
+/* === Secciones === */
+section {
+  scroll-margin-top: 90px;
+}
+
+.section {
+  display: none;
+  margin: 0 auto;
+  padding: 48px 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.section.on {
+  display: block;
+  opacity: 1;
+  border-bottom: 1px solid var(--line);
+}
+
+.section, .section.on, .section:first-of-type {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Centrar contenido directo de secciones */
+.section > .wrap,
+.section > .grid,
+.section > .card,
+.section > div,
+.section > p,
+.section > ul,
+.section > form {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+/* === Grids === */
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* === Cards === */
+.card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+  border-color: var(--brand);
+}
+
+.card h3,
+.admin-tab-content h3 {
+  margin: 0 0 6px;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* === Hero Card === */
+.hero-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 22px 21px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  margin-top: 18px;
+}
+
+/* === Section Card === */
+.section-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.section-card h3 {
+  margin: 0 0 8px;
+}
+
+/* === Sección de inicio específica === */
+#inicio .wrap {
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px 20px !important; /* !important para sobrescribir el selector general */
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+}
+
+/* === Titulares de secciones === */
+.section h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.2;
+  margin: 16px 0 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.section h2 {
+  color: var(--ink);
+  font-size: clamp(24px, 4vw, 36px);
+  margin: 0 0 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--line);
+}
+
+.section p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 24px;
+}
+
+.section p.lead {
+  color: var(--muted);
+  max-width: 80ch;
+}
+
+/* === Meta información === */
+.meta {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* === Utility classes === */
+.subtle {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* === Feature list === */
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.feature {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--grey);
+  color: var(--brand);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--brand-50);
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 500;
+  border-color: var(--brand);
+}
+
+.section .ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+

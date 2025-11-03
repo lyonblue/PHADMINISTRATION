@@ -43,6 +43,10 @@ router.patch('/', auth_1.requireAuth, async (req, res) => {
         values.push(user.userId);
         const sql = `UPDATE users SET ${fields.join(', ')} WHERE id=?`;
         await (0, pool_1.query)(sql, values);
+        // Si se actualizó el avatar, actualizar también los testimonios del usuario
+        if (updates.avatar_url !== undefined) {
+            await (0, pool_1.query)('UPDATE testimonials SET avatar_url=? WHERE user_id=?', [updates.avatar_url, user.userId]);
+        }
         // Obtener usuario actualizado
         const r = await (0, pool_1.query)('select id, email, full_name, avatar_url, role, email_verified_at, created_at from users where id=?', [user.userId]);
         res.json(r.rows[0] || null);

@@ -12,6 +12,9 @@ const rateLimit_1 = require("./middleware/rateLimit");
 const auth_1 = __importDefault(require("./routes/auth"));
 const me_1 = __importDefault(require("./routes/me"));
 const admin_1 = __importDefault(require("./routes/admin"));
+const testimonials_1 = __importDefault(require("./routes/testimonials"));
+const news_1 = __importDefault(require("./routes/news"));
+const contact_1 = __importDefault(require("./routes/contact"));
 const app = (0, express_1.default)();
 // Helmet con configuración menos restrictiva para desarrollo
 if (env_1.env.nodeEnv === 'development') {
@@ -29,7 +32,7 @@ if (env_1.env.nodeEnv === 'development') {
         origin: true, // Permitir cualquier origen en desarrollo
         credentials: true,
         methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Authorization']
+        allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control', 'X-Requested-With']
     }));
 }
 else {
@@ -47,7 +50,7 @@ else {
         },
         credentials: true,
         methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Authorization']
+        allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control', 'X-Requested-With']
     }));
 }
 app.use(express_1.default.json());
@@ -62,7 +65,10 @@ app.get('/', (_, res) => {
             health: '/health',
             auth: '/auth/*',
             me: '/me',
-            admin: '/admin/*'
+            admin: '/admin/*',
+            testimonials: '/testimonials',
+            news: '/news',
+            contact: '/contact/*'
         }
     });
 });
@@ -70,6 +76,9 @@ app.get('/health', (_, res) => res.json({ ok: true }));
 app.use('/auth', auth_1.default);
 app.use('/me', me_1.default);
 app.use('/admin', admin_1.default);
+app.use('/testimonials', testimonials_1.default);
+app.use('/news', news_1.default);
+app.use('/contact', contact_1.default);
 // Manejar rutas no encontradas
 app.use((req, res) => {
     res.status(404).json({

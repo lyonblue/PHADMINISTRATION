@@ -1,0 +1,78 @@
+/**
+ * Estilos de botones y CTAs
+ */
+
+/* === Botones base === */
+.cta-wsp, .cta-propuesta, .cta-login, .btn, .btn-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 26px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1px 6px 0 rgba(30,30,40,0.06);
+  transition: background 0.18s ease, box-shadow 0.18s ease, color 0.18s ease, border 0.18s;
+  outline: none;
+  height: 44px;
+  min-width: 120px;
+}
+
+/* === WhatsApp CTA === */
+.cta-wsp {
+  background: #25D366;
+  color: #fff;
+}
+
+.cta-wsp:hover {
+  background: #1aae52;
+  color: #fff;
+  box-shadow: 0 2px 12px 0 rgba(37,211,102,0.15);
+}
+
+.cta-wsp .fa-whatsapp {
+  font-size: 1.25em;
+  vertical-align: middle;
+  margin-right: 7px;
+  line-height: 1;
+}
+
+/* === Propuesta CTA === */
+.cta-propuesta {
+  background: var(--brand, #b90f1a);
+  color: #fff;
+}
+
+.cta-propuesta:hover {
+  background: #96040c;
+  color: #fff;
+}
+
+/* === Login CTA === */
+.cta-login {
+  background: #222e;
+  color: #fff;
+  border: 1px solid var(--line,#e5e7eb);
+}
+
+.cta-login:hover {
+  background: #120c25;
+  color: #fff;
+  border: 1px solid #b90f1a;
+}
+
+/* === Botones estándar === */
+.btn, .btn-login {
+  background: var(--brand, #b90f1a);
+  color: #fff;
+}
+
+.btn:hover, .btn-login:hover {
+  background: #96040c;
+  color: #fff;
+  box-shadow: 0 2px 12px 0 rgba(185,15,26,0.12);
+}
+

@@ -10,13 +10,15 @@
       name="description"
       content="Administramos su PH con transparencia, seguridad y eficiencia. Servicio integral de administración de propiedades horizontales en Panamá."
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="Media/Images/logo.jpg">
+    <link rel="stylesheet" href="styles/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   </head>
   <body>
     <!-- NAVBAR -->
@@ -37,17 +39,18 @@
             <a class="navbuttn" href="#inicio">Inicio</a>
             <a class="navbuttn" href="#quienes">Quiénes Somos</a>
             <a class="navbuttn" href="#servicios">Servicios</a>
-            <a class="navbuttn" href="#blog">Blog</a>
+            <a class="navbuttn" href="#noticias">Noticias</a>
             <a class="navbuttn" href="#testimonios">Testimonios</a>
+            <a id="adminNavLink" class="navbuttn" href="#administracion" style="display:none;">Administración</a>
           </div>
           <div class="navctas-right">
-            <a class="cta-wsp" target="_blank" href="https://wa.me/50763781316">💬 WhatsApp</a>
-            <a class="cta-propuesta" href="#propuesta">Propuesta</a>
+            <a class="cta-wsp" target="_blank" href="https://wa.me/50763781316"><i class="fab fa-whatsapp"></i>&nbsp;WhatsApp</a>
+            <a class="cta-propuesta" href="#propuesta">📄 Propuesta</a>
             <div id="userMenu" class="user-menu" style="display:none">
               <div class="user-trigger" id="userTrigger">
                 <img id="userAvatar" class="user-avatar" src="" alt="Avatar" />
                 <span id="userName" class="user-name"></span>
-              </div>
+              </div>  
               <div id="userDropdown" class="user-dropdown">
                 <div class="dropdown-header">
                   <div class="avatar-edit-wrapper">
@@ -94,7 +97,7 @@
           </h1>
           <p>
             En PH PTY Administration ofrecemos un servicio integral de
-            administración de propiedades horizontales en Panamá. Velamos por el
+            administración de propiedades horizontales en Panamá. Nos regimos estrictamente bajo la <strong style="color: var(--brand)"><a href="https://www.miviot.gob.pa/promulgan-ley-284-que-reforma-integralmente-la-propiedad-horizontal-en-panama/" target="_blank" rel="noopener noreferrer" style="color: var(--brand); text-decoration: underline;">Ley 284</a></strong> de Propiedad Horizontal, velando por el
             buen funcionamiento, la convivencia armónica y la seguridad de cada
             comunidad.
           </p>
@@ -102,9 +105,7 @@
             <a class="cta-propuesta" href="#propuesta"
               >📄 Solicita una propuesta</a
             >
-            <a class="cta-wsp" target="_blank" href="https://wa.me/50763781316"
-              >💬 WhatsApp directo</a
-            >
+            <a class="cta-wsp" target="_blank" href="https://wa.me/50763781316"><i class="fab fa-whatsapp"></i>&nbsp;WhatsApp directo</a>
           </div>
         </div>
         <div class="hero-card" aria-label="Resumen de valor">
@@ -187,6 +188,10 @@
           <h3>Transparencia</h3>
           <p>Procesos auditables y trazabilidad.</p>
         </div>
+        <div class="card" style="border: 2px solid var(--brand); background: var(--brand-50);">
+          <h3 style="color: var(--brand);">📋 Cumplimiento legal</h3>
+          <p>Nos regimos estrictamente bajo la <strong><a href="https://www.miviot.gob.pa/promulgan-ley-284-que-reforma-integralmente-la-propiedad-horizontal-en-panama/" target="_blank" rel="noopener noreferrer" style="color: var(--brand); text-decoration: underline;">Ley 284</a></strong> de Propiedad Horizontal de Panamá, garantizando el cumplimiento de todas las normativas y reglamentos vigentes.</p>
+        </div>
       </div>
     </section>
 
@@ -226,11 +231,10 @@
             seguimiento.
           </p>
         </article>
-        <article class="card">
-          <h3>Asesoría legal y normativa</h3>
+        <article class="card" style="border: 2px solid var(--brand); background: var(--brand-50);">
+          <h3 style="color: var(--brand);">📋 Asesoría legal y normativa</h3>
           <p>
-            Apoyo en cumplimiento de la Ley 284 y reglamentos internos de
-            Propiedad Horizontal.
+            Nos regimos y operamos bajo el estricto cumplimiento de la <strong><a href="https://www.miviot.gob.pa/promulgan-ley-284-que-reforma-integralmente-la-propiedad-horizontal-en-panama/" target="_blank" rel="noopener noreferrer" style="color: var(--brand); text-decoration: underline;">Ley 284</a></strong> de Propiedad Horizontal de Panamá. Brindamos asesoría en cumplimiento normativo y apoyo con reglamentos internos de Propiedad Horizontal.
           </p>
         </article>
         <article class="card">
@@ -244,13 +248,19 @@
 
     
 
-    <!-- BLOG -->
-    <section id="blog" class="section">
-      <h2>Blog / Noticias</h2>
+    <!-- NOTICIAS -->
+    <section id="noticias" class="section">
+      <h2>Noticias</h2>
       <p class="lead">
         Actualizaciones, consejos y cambios normativos para tu comunidad.
       </p>
-      <div id="blogList" class="grid grid-3"></div>
+      <!-- Carrusel de noticias -->
+      <div id="newsCarousel" class="news-carousel-container">
+        <div id="newsList" class="news-carousel"></div>
+      </div>
+      <div id="newsEmpty" class="subtle" style="text-align:center; padding: 40px; display:none;">
+        Aún no hay noticias publicadas.
+      </div>
     </section>
 
     <!-- TESTIMONIOS -->
@@ -296,7 +306,7 @@
     <section id="propuesta" class="section">
       <h2>Solicita una propuesta</h2>
       <div class="grid grid-2">
-        <form id="propForm" class="card form">
+        <form id="propForm" class="card form" action="javascript:void(0);" method="post">
           <input
             class="input"
             id="pName"
@@ -326,13 +336,13 @@
           <textarea
             class="textarea"
             id="pScope"
-            placeholder="Cuéntanos qué necesitas"
+            placeholder="Cuéntanos qué necesitas (mínimo 5 caracteres)"
             required
+            minlength="5"
           ></textarea>
           <button class="btn" type="submit">Solicitar propuesta</button>
           <p class="subtle">
-            En producción, este formulario se envía a su correo o CRM. Aquí es
-            una demostración en pantalla.
+            Completa el formulario y nuestro equipo te contactará con una propuesta personalizada.
           </p>
           <div id="propMsg" class="subtle"></div>
         </form>
@@ -344,14 +354,126 @@
             <li>Indicadores de servicio y reportes.</li>
             <li>Cotización y condiciones.</li>
           </ul>
-          <a class="cta-wsp" target="_blank" href="https://wa.me/50763781316"
-            >Hablar por WhatsApp</a
-          >
+          <div style="margin-top: 20px; padding: 16px; background: var(--brand-50); border-left: 4px solid var(--brand); border-radius: 8px;">
+            <p style="margin: 0; font-size: 14px; line-height: 1.6;">
+              <strong style="color: var(--brand);">✓ Cumplimiento garantizado</strong><br>
+              Todos nuestros servicios se rigen bajo la <strong><a href="https://www.miviot.gob.pa/promulgan-ley-284-que-reforma-integralmente-la-propiedad-horizontal-en-panama/" target="_blank" rel="noopener noreferrer" style="color: var(--brand); text-decoration: underline;">Ley 284</a></strong> de Propiedad Horizontal de Panamá.
+            </p>
+          </div>
+          <a class="cta-wsp" target="_blank" href="https://wa.me/50763781316" style="margin-top: 16px; display: inline-block;"><i class="fab fa-whatsapp"></i>&nbsp;Hablar por WhatsApp</a>
         </div>
       </div>
     </section>
 
     
+
+    <!-- ADMINISTRACIÓN -->
+    <section id="administracion" class="section">
+      <h2>Panel de Administración</h2>
+      <p class="lead">
+        Gestiona todas las funciones administrativas del sistema.
+      </p>
+
+      <!-- Tabs de administración -->
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="news">📰 Noticias</button>
+        <button class="admin-tab" data-tab="users">👥 Usuarios</button>
+        <button class="admin-tab" data-tab="testimonials">⭐ Testimonios</button>
+        <button class="admin-tab" data-tab="stats">📊 Estadísticas</button>
+      </div>
+
+      <!-- Tab: Noticias -->
+      <div id="adminNews" class="admin-tab-content active">
+        <div class="card">
+          <h3>Gestión de Noticias</h3>
+          <form id="adminNewsForm" class="form">
+            <div class="form-group">
+              <label for="adminNewsTitle">Título</label>
+              <input type="text" id="adminNewsTitle" class="input" placeholder="Título de la noticia" required />
+            </div>
+            <div class="form-group">
+              <label for="adminNewsSubtitle">Subtítulo</label>
+              <input type="text" id="adminNewsSubtitle" class="input" placeholder="Subtítulo o resumen breve" required />
+            </div>
+            <div class="form-group">
+              <label for="adminNewsDescription">Descripción</label>
+              <textarea id="adminNewsDescription" class="textarea" placeholder="Descripción completa de la noticia" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="adminNewsImage">Foto</label>
+              <input type="file" id="adminNewsImage" accept="image/*" class="input" required />
+              <div id="adminNewsImagePreview" style="margin-top: 12px; display:none;">
+                <img id="adminNewsPreviewImg" src="" alt="Preview" style="max-width: 300px; border-radius: 8px; border: 1px solid var(--line);" />
+              </div>
+            </div>
+            <button type="submit" class="btn">Publicar Noticia</button>
+          </form>
+        </div>
+        <div class="card" style="margin-top: 24px;">
+          <h3>Noticias Publicadas</h3>
+          <div id="adminNewsList" class="admin-list"></div>
+        </div>
+      </div>
+
+      <!-- Tab: Usuarios -->
+      <div id="adminUsers" class="admin-tab-content">
+        <div class="card">
+          <h3>Crear Nuevo Usuario</h3>
+          <form id="adminCreateUserForm" class="form">
+            <div class="form-group">
+              <label for="adminUserName">Nombre Completo</label>
+              <input type="text" id="adminUserName" name="admin-user-name" class="input" placeholder="Nombre completo" autocomplete="off" required />
+            </div>
+            <div class="form-group">
+              <label for="adminUserEmail">Email</label>
+              <input type="email" id="adminUserEmail" name="admin-user-email" class="input" placeholder="correo@ejemplo.com" autocomplete="off" required />
+            </div>
+            <div class="form-group">
+              <label for="adminUserPassword">Contraseña</label>
+              <input type="password" id="adminUserPassword" name="admin-user-password" class="input" placeholder="Mínimo 8 caracteres" autocomplete="new-password" required />
+            </div>
+            <div class="form-group">
+              <label for="adminUserRole">Rol</label>
+              <select id="adminUserRole" class="input" required>
+                <option value="user">Usuario</option>
+                <option value="admin">Administrador</option>
+              </select>
+            </div>
+            <button type="submit" class="btn">Crear Usuario</button>
+          </form>
+        </div>
+        <div class="card" style="margin-top: 24px;">
+          <h3>Usuarios Registrados</h3>
+          <div id="adminUsersList" class="admin-list"></div>
+        </div>
+      </div>
+
+      <!-- Tab: Testimonios -->
+      <div id="adminTestimonials" class="admin-tab-content">
+        <div class="card">
+          <h3>Gestión de Testimonios</h3>
+          <div id="adminTestimonialsList" class="admin-list"></div>
+        </div>
+      </div>
+
+      <!-- Tab: Estadísticas -->
+      <div id="adminStats" class="admin-tab-content">
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Usuarios Totales</h3>
+            <p id="statsUsers" class="stats-number">-</p>
+          </div>
+          <div class="card">
+            <h3>Noticias Publicadas</h3>
+            <p id="statsNews" class="stats-number">-</p>
+          </div>
+          <div class="card">
+            <h3>Testimonios</h3>
+            <p id="statsTestimonials" class="stats-number">-</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- FOOTER -->
     <footer>
@@ -368,27 +490,25 @@
           </div>
         </div>
         <div>
+          <strong>Marco Legal</strong>
+          <div class="subtle" style="margin-top:8px">
+            <div><strong><a href="https://www.miviot.gob.pa/promulgan-ley-284-que-reforma-integralmente-la-propiedad-horizontal-en-panama/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Ley 284</a></strong></div>
+            <div style="font-size: 13px; line-height: 1.5; max-width: 250px;">
+              Nos regimos bajo la <strong><a href="https://www.miviot.gob.pa/promulgan-ley-284-que-reforma-integralmente-la-propiedad-horizontal-en-panama/" target="_blank" rel="noopener noreferrer" style="color: var(--brand); text-decoration: underline;">Ley 284</a></strong> de Propiedad Horizontal de Panamá, garantizando el cumplimiento de todas las normativas y reglamentos vigentes.
+            </div>
+          </div>
+        </div>
+        <div>
           <strong>Contacto</strong>
           <div class="subtle" style="margin-top:8px">
             <div><strong>Correo:</strong> <a href="mailto:admon.phpty@gmail.com">admon.phpty@gmail.com</a></div>
-            <div><strong>WhatsApp:</strong> <a target="_blank" href="https://wa.me/50763781316">6378-1316</a></div>
+            <div><strong>WhatsApp:</strong> <a target="_blank" href="https://wa.me/50763781316"><i class="fab fa-whatsapp"></i>&nbsp;6378-1316</a></div>
             <div><strong>Ubicación:</strong> Ciudad de Panamá</div>
             <div style="margin-top:8px">
               <strong>Horarios</strong><br/>
               Lunes a Viernes: 8:00 a.m. – 5:00 p.m.<br/>
               Sábados: 9:00 a.m. – 1:00 p.m.
             </div>
-          </div>
-        </div>
-        <div>
-          <strong>Acción</strong>
-          <div
-            style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap"
-          >
-            <a class="cta-wsp" target="_blank" href="https://wa.me/50763781316"
-              >WhatsApp</a
-            >
-            <a class="cta-propuesta" href="#propuesta">Propuesta</a>
           </div>
         </div>
       </div>
@@ -401,7 +521,85 @@
     <!-- React (para ruteo de secciones) -->
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <!-- Modal para vista ampliada de noticia -->
+    <div id="newsModal" class="modal-overlay" style="display:none;">
+      <div class="modal-content news-modal-content">
+        <button class="modal-close" id="newsModalClose" aria-label="Cerrar">×</button>
+        <div id="newsModalContent"></div>
+      </div>
+    </div>
+
+    <!-- Modal para cambiar contraseña -->
+    <div id="changePasswordModal" class="modal-overlay" style="display:none;">
+      <div class="modal-content">
+        <button class="modal-close" id="changePasswordModalClose" aria-label="Cerrar">×</button>
+        <h2>Cambiar Contraseña</h2>
+        <form id="changePasswordForm" class="form">
+          <div class="form-group">
+            <label for="currentPasswordInput">Contraseña Actual</label>
+            <input type="password" id="currentPasswordInput" class="input" placeholder="Ingresa tu contraseña actual" required />
+          </div>
+          <div class="form-group">
+            <label for="newPasswordInput">Nueva Contraseña</label>
+            <input type="password" id="newPasswordInput" class="input" placeholder="Mínimo 8 caracteres" required minlength="8" />
+            <div class="hint" id="passwordHint">La contraseña debe tener al menos 8 caracteres</div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPasswordInput">Confirmar Nueva Contraseña</label>
+            <input type="password" id="confirmPasswordInput" class="input" placeholder="Confirma tu nueva contraseña" required minlength="8" />
+            <div class="hint" id="confirmPasswordHint"></div>
+          </div>
+          <div id="changePasswordMsg" class="hint" style="margin-top: 12px;"></div>
+          <div style="display: flex; gap: 12px; margin-top: 20px;">
+            <button type="submit" class="btn">Cambiar Contraseña</button>
+            <button type="button" class="btn" id="cancelChangePasswordBtn" style="background: var(--grey); color: var(--ink);">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Chatbot -->
+    <button id="chatbotToggle" class="chatbot-toggle" aria-label="Abrir chat">
+      💬
+    </button>
+    <div id="chatbotContainer" class="chatbot-container">
+      <div class="chatbot-header">
+        <h3>💬 Soporte</h3>
+        <button id="chatbotClose" class="chatbot-close" aria-label="Cerrar chat">×</button>
+      </div>
+      <div id="chatbotMessages" class="chatbot-messages">
+        <div class="chatbot-message bot">
+          <div class="chatbot-message-avatar">🤖</div>
+          <div>
+            <div class="chatbot-message-content">
+              ¡Hola! 👋 Bienvenido a PH PTY Administration. Soy tu asistente virtual y estoy aquí para ayudarte con cualquier pregunta sobre nuestros servicios de administración de propiedades horizontales. ¿En qué puedo asistirte hoy?
+            </div>
+            <div class="chatbot-message-time">Ahora</div>
+          </div>
+        </div>
+      </div>
+      <div class="chatbot-input-wrapper">
+        <button id="chatbotSuggestionsToggle" class="chatbot-suggestions-toggle" aria-label="Mostrar sugerencias">
+          <span>💡 Sugerencias</span>
+          <span class="icon">▼</span>
+        </button>
+        <div id="chatbotSuggestions" class="chatbot-suggestions"></div>
+        <div class="chatbot-input-container">
+          <input 
+            type="text" 
+            id="chatbotInput" 
+            class="chatbot-input" 
+            placeholder="Escribe tu mensaje..."
+            maxlength="500"
+          />
+          <button id="chatbotSend" class="chatbot-send" aria-label="Enviar mensaje">📤</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/utils.js"></script>
     <script src="app-routing.js"></script>
     <script src="script.js"></script>
+    <script src="js/chatbot.js"></script>
   </body>
 </html>

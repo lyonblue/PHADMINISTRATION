@@ -1,0 +1,172 @@
+/**
+ * Estilos de testimonios y calificaciones
+ */
+
+/* === Lista de testimonios === */
+#testiList {
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+}
+
+#testiList::-webkit-scrollbar {
+  width: 8px;
+}
+
+#testiList::-webkit-scrollbar-track {
+  background: var(--grey);
+  border-radius: 4px;
+}
+
+#testiList::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+#testiList::-webkit-scrollbar-thumb:hover {
+  background: var(--ink);
+}
+
+#testiList {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) var(--grey);
+}
+
+.testimonial {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--brand);
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+}
+
+.testimonial-delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--brand);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s ease;
+  padding: 0;
+  font-weight: bold;
+}
+
+.testimonial-delete:hover {
+  background: #d00;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--line);
+  flex-shrink: 0;
+}
+
+.testimonial-author {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.testimonial-message {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* === Star Rating === */
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.star-label {
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.stars-container {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.star {
+  font-size: 32px;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.1s ease;
+  user-select: none;
+  line-height: 1;
+}
+
+.star:hover {
+  transform: scale(1.1);
+}
+
+.star.active {
+  color: #ffc107;
+}
+
+.star-value {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.testi-login-prompt {
+  padding: 20px;
+  text-align: center;
+  background: var(--grey);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.testi-login-prompt a {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.testi-login-prompt a:hover {
+  color: var(--brand-600);
+}
+
+.stars {
+  font-size: 14px;
+  color: #f59e0b;
+}
+

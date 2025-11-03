@@ -17,5 +17,11 @@ exports.env = {
     allowedOrigin: process.env.ALLOWED_ORIGIN || '*',
     emailProvider: process.env.EMAIL_PROVIDER || 'smtp',
     sendgridApiKey: process.env.SENDGRID_API_KEY || '',
-    emailFrom: process.env.EMAIL_FROM || 'no-reply@example.com'
+    emailFrom: process.env.EMAIL_FROM || 'no-reply@example.com',
+    proposalEmail: process.env.PROPOSAL_EMAIL || process.env.EMAIL_FROM || 'kkillingbeck939@gmail.com',
+    smtpHost: process.env.SMTP_HOST || 'smtp.gmail.com',
+    smtpPort: parseInt(process.env.SMTP_PORT || '587', 10),
+    smtpUser: process.env.SMTP_USER || '',
+    smtpPass: process.env.SMTP_PASS || '',
+    frontendUrl: process.env.FRONTEND_URL || 'http://localhost'
 };

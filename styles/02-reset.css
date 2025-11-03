@@ -1,0 +1,59 @@
+/**
+ * Reset y estilos base
+ * Normaliza estilos entre navegadores y define estilos base para elementos HTML
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Fondo blur con imagen */
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)), 
+              url('../Media/Images/panamafondo.webp') center center / cover no-repeat;
+  filter: blur(15px) brightness(1.12);
+  opacity: 0.88;
+  pointer-events: none;
+}
+
+/* Permitir fondo blur en páginas de login/register */
+main, .section, header, footer, .nav, .card, .form, .hero-card, .admin-list-item {
+  position: relative;
+  z-index: 1;
+}
+
+.card, .form, .hero-card, .admin-list-item {
+  background: white;
+}
+
+/* Enlaces */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Imágenes */
+img {
+  max-width: 100%;
+  display: block;
+}
+

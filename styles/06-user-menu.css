@@ -1,0 +1,221 @@
+/**
+ * Estilos del menú de usuario y dropdown
+ */
+
+.user-menu {
+  position: relative;
+}
+
+.user-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 12px;
+  transition: background .2s ease;
+}
+
+.user-trigger:hover {
+  background: var(--card);
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--bg);
+  transition: transform .2s ease;
+}
+
+.user-trigger:hover .user-avatar {
+  transform: scale(1.05);
+}
+
+.user-name {
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+/* === Dropdown === */
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  min-width: 280px;
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.user-dropdown.open {
+  display: flex;
+}
+
+.dropdown-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.avatar-edit-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.dropdown-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--brand);
+  display: block;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--brand);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  border: 2px solid white;
+  transition: background .2s ease;
+}
+
+.edit-icon:hover {
+  background: var(--brand-600);
+}
+
+.display-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: center;
+  padding: 8px 0;
+}
+
+.editable-name {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  background: var(--card);
+  color: var(--ink);
+}
+
+.editable-name:focus {
+  outline: none;
+  border-color: var(--brand);
+  background: white;
+}
+
+.edit-name-icon {
+  background: var(--brand);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  transition: background .2s ease;
+}
+
+.edit-name-icon:hover {
+  background: var(--brand-600);
+}
+
+.btn-save-name {
+  padding: 6px 14px;
+  background: var(--brand);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s ease;
+  white-space: nowrap;
+}
+
+.btn-save-name:hover {
+  background: var(--brand-600);
+}
+
+.btn-save-name:disabled {
+  background: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-cancel-name {
+  padding: 6px 14px;
+  background: white;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+
+.btn-cancel-name:hover {
+  background: var(--grey);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--ink);
+  transition: background .2s ease;
+  border-bottom: 1px solid var(--line);
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background: var(--card);
+}
+
+.dropdown-item.logout {
+  color: var(--brand);
+  font-weight: 600;
+}
+

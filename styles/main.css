@@ -1,0 +1,21 @@
+/**
+ * Archivo principal de estilos
+ * Importa todos los módulos CSS en el orden correcto
+ */
+
+@import url('01-variables.css');
+@import url('02-reset.css');
+@import url('03-layout.css');
+@import url('04-navbar.css');
+@import url('05-buttons.css');
+@import url('06-user-menu.css');
+@import url('07-forms.css');
+@import url('08-modals.css');
+@import url('09-news.css');
+@import url('10-testimonials.css');
+@import url('11-admin.css');
+@import url('12-login.css');
+@import url('13-footer.css');
+@import url('14-responsive.css');
+@import url('15-chatbot.css');
+

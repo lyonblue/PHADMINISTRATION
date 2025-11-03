@@ -1,0 +1,118 @@
+/**
+ * Estilos del navbar y navegación
+ */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff !important;
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav .wrap {
+  max-width: 1280px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+}
+
+.brand .logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 800;
+}
+
+.logo-img {
+  height: 32px;
+  width: auto;
+}
+
+.navlinks {
+  margin-left: 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.navlinks-left {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.navctas-right {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.navbuttn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbuttn:hover {
+  background: var(--grey);
+  color: var(--ink);
+}
+
+/* === Menú móvil === */
+.menu-btn {
+  display: none;
+  margin-left: 8px;
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+#mobileMenu {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#mobileMenu.open {
+  display: block;
+  opacity: 1;
+}
+
+.mobile {
+  display: none;
+  border-top: 1px solid var(--line);
+}
+
+.mobile a {
+  display: block;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.mobile a:hover {
+  background: var(--brand-50);
+  color: var(--brand);
+}
+

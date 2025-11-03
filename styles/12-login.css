@@ -1,0 +1,95 @@
+/**
+ * Estilos de páginas de login y registro
+ */
+
+.login-page {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: 100svh;
+  padding: 56px 12px;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 48px;
+  border-radius: 16px !important;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--line);
+  width: 320px;
+  text-align: center;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+}
+
+.login-container.wide {
+  width: 540px;
+  max-width: 92vw;
+  padding: 32px;
+  border-radius: 22px !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.login-container a.subtle {
+  color: var(--muted);
+  transition: color .2s ease;
+}
+
+.login-container a.subtle:hover {
+  color: var(--brand);
+  text-decoration: underline;
+}
+
+.login-container h1 {
+  color: var(--brand);
+  margin-bottom: 20px;
+}
+
+.btn-login {
+  background: var(--brand);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background: var(--brand-600);
+}
+
+#msg {
+  margin-top: 15px;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.login-logo {
+  height: 60px;
+  width: auto;
+  margin: 0 auto 10px;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeIn 0.8s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

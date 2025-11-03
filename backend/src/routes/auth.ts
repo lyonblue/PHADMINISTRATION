@@ -1,56 +1,88 @@
+/**
+ * Rutas de autenticación
+ * Maneja: registro, login, logout y refresh token
+ */
+
 import { Router, Request, Response } from 'express';
 import { z } from 'zod';
 import jwt from 'jsonwebtoken';
 import * as svc from '../services/authService';
-import { sendEmail } from '../utils/email';
 import { env } from '../config/env';
 
 const router = Router();
 
+/**
+ * POST /auth/register
+ * Registra un nuevo usuario en el sistema
+ * Requiere: email (válido), password (mínimo 8 caracteres), fullName (no vacío)
+ */
 router.post('/register', async (req: Request, res: Response) => {
   const schema = z.object({ email: z.string().email(), password: z.string().min(8), fullName: z.string().min(1) });
   const data = schema.parse(req.body);
   try {
-    const { userId, verifyToken } = await svc.register(data.email, data.password, data.fullName);
-    await sendEmail({ to: data.email, subject: 'Verifica tu correo', html: `Token: ${verifyToken}` });
-    res.status(201).json({ userId });
+    const { userId } = await svc.register(data.email, data.password, data.fullName);
+    res.status(201).json({ userId, message: 'Usuario registrado exitosamente' });
   } catch (e: any) {
     if(e.message === 'email_taken') return res.status(409).json({ error: 'Email ya registrado' });
-    res.status(500).json({ error: 'Error registrando' });
+    console.error('Error en registro:', e);
+    res.status(500).json({ error: 'Error registrando: ' + (e.message || 'Error desconocido') });
   }
 });
 
-router.get('/verify-email', async (req: Request, res: Response) => {
-  const token = String(req.query.token || '');
-  try { await svc.verifyEmail(token); res.json({ ok: true }); }
-  catch (e: any) { res.status(400).json({ error: e.message }); }
-});
-
+/**
+ * POST /auth/login
+ * Inicia sesión con email y contraseña
+ * Devuelve: accessToken (JWT) y role del usuario
+ * Guarda refreshToken en cookie httpOnly
+ */
 router.post('/login', async (req: Request, res: Response) => {
   const schema = z.object({ email: z.string().email(), password: z.string().min(1) });
   const data = schema.parse(req.body);
   try {
     const { accessToken, refreshToken, role } = await svc.login(data.email, data.password);
-    res.cookie('refresh_token', refreshToken, { httpOnly: true, secure: true, sameSite: 'strict', maxAge: 1000 * 60 * 60 * 24 * 30 });
+    // En desarrollo, no usar secure para permitir cookies en HTTP local
+    const isDevelopment = env.nodeEnv === 'development';
+    res.cookie('refresh_token', refreshToken, { 
+      httpOnly: true, 
+      secure: !isDevelopment, // Solo seguro en producción (HTTPS)
+      sameSite: isDevelopment ? 'lax' : 'strict', // 'lax' en desarrollo, 'strict' en producción
+      maxAge: 1000 * 60 * 60 * 24 * 30 // 30 días
+    });
     res.json({ accessToken, role });
   } catch {
     res.status(401).json({ error: 'Credenciales inválidas' });
   }
 });
 
+/**
+ * POST /auth/refresh
+ * Renueva el accessToken usando el refreshToken almacenado en cookie
+ * Requiere: userId en body y refresh_token en cookie
+ */
 router.post('/refresh', async (req: Request, res: Response) => {
   const { userId } = req.body as { userId: string };
   const rt = req.cookies?.refresh_token as string | undefined;
   if(!userId || !rt) return res.status(401).json({ error: 'No refresh' });
   try {
     const { accessToken, refreshToken } = await svc.refresh(userId, rt);
-    res.cookie('refresh_token', refreshToken, { httpOnly: true, secure: true, sameSite: 'strict', maxAge: 1000 * 60 * 60 * 24 * 30 });
+    const isDevelopment = env.nodeEnv === 'development';
+    res.cookie('refresh_token', refreshToken, { 
+      httpOnly: true, 
+      secure: !isDevelopment,
+      sameSite: isDevelopment ? 'lax' : 'strict',
+      maxAge: 1000 * 60 * 60 * 24 * 30 // 30 días
+    });
     res.json({ accessToken });
   } catch (e: any) {
     res.status(401).json({ error: e.message });
   }
 });
 
+/**
+ * POST /auth/logout
+ * Cierra sesión revocando el refreshToken
+ * Limpia la cookie de refresh_token
+ */
 router.post('/logout', async (req: Request, res: Response) => {
   // Intentar obtener userId del token JWT si está presente
   const auth = req.headers.authorization;
@@ -72,22 +104,4 @@ router.post('/logout', async (req: Request, res: Response) => {
   res.json({ ok: true });
 });
 
-router.post('/forgot-password', async (req: Request, res: Response) => {
-  const schema = z.object({ email: z.string().email() });
-  const { email } = schema.parse(req.body);
-  const result = await svc.forgotPassword(email);
-  if(result){
-    await sendEmail({ to: email, subject: 'Restablece tu contraseña', html: `Token: ${result.token}` });
-  }
-  res.json({ ok: true });
-});
-
-router.post('/reset-password', async (req: Request, res: Response) => {
-  const schema = z.object({ token: z.string(), password: z.string().min(8) });
-  const { token, password } = schema.parse(req.body);
-  try { await svc.resetPassword(token, password); res.json({ ok: true }); }
-  catch (e: any) { res.status(400).json({ error: e.message }); }
-});
-
 export default router;
-
